@@ -9,8 +9,18 @@
 </head>
 <body>
 <h1 align="center">Beer Recommendations JSP</h1>
+<p>
+<%
 
-	Welcome. Welcome.
-		<a href="form.html">Click her to choose from our awesome selection</a>
+	List styles =  (List)request.getAttribute("pawan"); 
+	
+
+	Iterator it = styles.iterator();
+
+		while(it.hasNext()) {
+			out.print("<br>Try: " + it.next());
+		}
+//	}
+%>
 </body>
 </html>

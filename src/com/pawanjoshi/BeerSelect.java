@@ -2,15 +2,15 @@ package com.pawanjoshi;
 
 
 import java.io.IOException;
-import com.pawanjoshi.model.*;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+
+import com.pawanjoshi.model.BeerExpert;
 
 public class BeerSelect extends HttpServlet {
 	
@@ -21,10 +21,10 @@ public class BeerSelect extends HttpServlet {
 	    String c = request.getParameter("color");
 		BeerExpert be = new BeerExpert();
 		List<String> result = be.getBrands(c);
+
+	    request.setAttribute("pawan", result);
 		
-	    request.setAttribute("styles", result);
-		
-		RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("beerselect.jsp");
 		view.forward(request, response);
 		
 		/*
